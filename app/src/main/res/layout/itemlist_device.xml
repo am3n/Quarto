@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_device_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="#666"
+        android:textSize="14dp"
+        android:gravity="left"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp" />
+
+    <TextView
+        android:id="@+id/txt_device_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textColor="#222222"
+        android:textSize="@dimen/bluetooth_spp_text_size"
+        android:padding="@dimen/bluetooth_spp_padding"
+        android:visibility="gone" />
+
+</LinearLayout>

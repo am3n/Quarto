@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#f9a825</color>
+    <color name="colorPrimaryDark">#D28406</color>
+    <color name="colorAccent">#ff5252</color>
+    <color name="colorControlHighlight">#9fffa4a4</color>
+
+    <color name="quarto_black_stork">#039be5</color>
+    <color name="quarto_black_fill">#29b6f6</color>
+    <color name="quarto_white_stork">#e53935</color>
+    <color name="quarto_white_fill">#ef5350</color>
+
+    <color name="bluetooth_off">#dfdfdf</color>
+    <color name="bluetooth_on">#004aea</color>
+
+</resources>

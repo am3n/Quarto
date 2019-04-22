@@ -1,0 +1,32 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="7000"
+    android:viewportHeight="7000" >
+
+    <group android:translateX="1200" android:translateY="1200"
+        android:scaleX="9" android:scaleY="9">
+
+        <path android:fillColor="@color/quarto_white_stork"
+            android:strokeColor="@color/quarto_white_stork"
+            android:strokeWidth="100"
+            android:pathData="m37 6h436c16.6 0 30 13.4 30 30v438c0 16.6 -13.4 30 -30 30h-436c-16.6 0 -30 -13.4 -30 -30v-438c0 -16.6 13.4 -30 30 -30z"/>
+    </group>
+
+    <!--
+    <group android:translateX="440" android:translateY="440"
+        android:scaleX="1.2" android:scaleY="1.2">
+        <path android:strokeColor="#0000"
+            android:strokeWidth="90"
+            android:pathData="M843 4413 c-24 -8 -43 -19 -43 -24 0 -5 -4 -9 -10 -9 -14 0 -41 -30 -65 -71 -20 -34 -20 -52 -20 -1739 0 -1687 0 -1705 20 -1739 24 -41 51 -71 65 -71 5 0 10 -4 10 -9 0 -5 22 -16 49 -25 45 -14 208 -16 1701 -16 1291 0 1659 3 1692 13 55 16 129 90 146 145 18 61 18 3343 0 3404 -17 55 -91 129 -146 146 -33 9 -399 12 -1699 11 -1430 -1 -1664 -4 -1700 -16z"/>
+    </group>
+    -->
+
+    <group android:translateX="1750" android:translateY="1750"
+        android:scaleX="6.9" android:scaleY="6.9">
+        <path
+            android:fillColor="@color/quarto_white_fill"
+            android:pathData="m37 6h436c16.6 0 30 13.4 30 30v438c0 16.6 -13.4 30 -30 30h-436c-16.6 0 -30 -13.4 -30 -30v-438c0 -16.6 13.4 -30 30 -30z" />
+    </group>
+
+</vector>

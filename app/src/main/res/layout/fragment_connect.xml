@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/txt_frgconn_this"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of this device"
+        android:textColor="#fff"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/txt_frgconn_turnon"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp" />
+
+    <TextView
+        android:id="@+id/txt_frgconn_wait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wait for your friend or tap to connect"
+        android:textColor="#fff"
+        android:textSize="26dp"
+        android:alpha="0"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/img_frgconn_center"
+        android:layout_marginBottom="64dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp" />
+    <TextView
+        android:id="@+id/txt_frgconn_turnon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn On!"
+        android:textColor="#fff"
+        android:textSize="26dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/img_frgconn_center"
+        android:layout_marginBottom="64dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp" />
+
+    <ImageView
+        android:id="@+id/img_frgconn_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgb_frgconn_turnon"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        app:srcCompat="@drawable/ic_bluetooth_off"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/img_frgconn_center"
+        android:layout_marginTop="-32dp" />
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgb_frgconn_conn"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        app:srcCompat="@drawable/ic_bluetooth_on"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:alpha="0"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/img_frgconn_center"
+        android:layout_marginTop="-32dp" />
+    <TextView
+        android:id="@+id/txt_frgconn_disconn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hold to disconnect"
+        android:textColor="#eee"
+        android:gravity="center_vertical|center_horizontal"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imgb_frgconn_conn"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp" />
+
+    <ProgressBar
+        android:id="@+id/prb_connecting"
+        android:indeterminateDrawable="@drawable/prb_frgconn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:layout_alignBottom="@+id/imgb_frgconn_turnon"
+        android:layout_alignTop="@+id/imgb_frgconn_turnon"
+        android:layout_alignLeft="@+id/imgb_frgconn_turnon"
+        android:layout_alignStart="@+id/imgb_frgconn_turnon"
+        android:layout_alignRight="@+id/imgb_frgconn_turnon"
+        android:layout_alignEnd="@+id/imgb_frgconn_turnon" />
+
+</RelativeLayout>

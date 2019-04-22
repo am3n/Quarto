@@ -1,0 +1,17 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="rlv_height">60dp</dimen>
+    <dimen name="borders_marginLeftRight">12dp</dimen>
+    <dimen name="rooms_margin">12dp</dimen>
+    <dimen name="rlv_0_1_2__marginBottom">44dp</dimen>
+    <dimen name="rlv_4_5_6__marginTop">28dp</dimen>
+
+    <dimen name="room_size">60dp</dimen>
+    <dimen name="room_padding">1dp</dimen>
+    <dimen name="pickroom_size">40dp</dimen>
+    <dimen name="table_padding">50dp</dimen>
+
+</resources>

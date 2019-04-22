@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_grdl_pick"
+        android:columnCount="4"
+        android:padding="6dp"
+        android:rowCount="2">
+
+        <include
+            android:id="@+id/pickroom_0"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_1"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_2"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_3"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_4"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_5"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_6"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_7"
+            layout="@layout/pickroom" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_table"
+        android:columnCount="4"
+        android:rotation="-45"
+        android:rowCount="4">
+
+        <include
+            android:id="@+id/room_0_0"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_0_1"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_0_2"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_0_3"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_1_0"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_1_1"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_1_2"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_1_3"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_2_0"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_2_1"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_2_2"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_2_3"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_3_0"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_3_1"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_3_2"
+            layout="@layout/room" />
+
+        <include
+            android:id="@+id/room_3_3"
+            layout="@layout/room" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_grdl_pick2"
+        android:columnCount="4"
+        android:padding="6dp"
+        android:rowCount="2">
+
+        <include
+            android:id="@+id/pickroom_8"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_9"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_10"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_11"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_12"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_13"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_14"
+            layout="@layout/pickroom" />
+
+        <include
+            android:id="@+id/pickroom_15"
+            layout="@layout/pickroom" />
+
+    </GridLayout>
+
+</RelativeLayout>

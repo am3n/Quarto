@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:id="@+id/rlv_0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_alignBottom="@+id/rlv_1"
+        android:layout_marginBottom="@dimen/rlv_0_1_2__marginBottom">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_0_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_0_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_0_0"
+            android:layout_alignLeft="@id/img_border_0_0"
+            android:layout_alignTop="@id/img_border_0_0"
+            android:layout_alignBottom="@id/img_border_0_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlv_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_alignBottom="@+id/rlv_2"
+        android:layout_marginBottom="@dimen/rlv_0_1_2__marginBottom">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_1_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_rlv1_center"
+            android:layout_toStartOf="@+id/img_rlv1_center"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_1_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_1_0"
+            android:layout_alignLeft="@id/img_border_1_0"
+            android:layout_alignTop="@id/img_border_1_0"
+            android:layout_alignBottom="@id/img_border_1_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <ImageView
+            android:id="@+id/img_rlv1_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_1_1"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/img_rlv1_center"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_1_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_1_1"
+            android:layout_alignLeft="@id/img_border_1_1"
+            android:layout_alignTop="@id/img_border_1_1"
+            android:layout_alignBottom="@id/img_border_1_1"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlv_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_above="@+id/img_main_center"
+        android:layout_marginBottom="@dimen/rlv_0_1_2__marginBottom">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_2_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_border_2_1"
+            android:layout_toStartOf="@+id/img_border_2_1"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_2_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_2_0"
+            android:layout_alignLeft="@id/img_border_2_0"
+            android:layout_alignTop="@id/img_border_2_0"
+            android:layout_alignBottom="@id/img_border_2_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_2_1"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_2_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_2_1"
+            android:layout_alignLeft="@id/img_border_2_1"
+            android:layout_alignTop="@id/img_border_2_1"
+            android:layout_alignBottom="@id/img_border_2_1"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_2_2"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/img_border_2_1"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_2_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_2_2"
+            android:layout_alignLeft="@id/img_border_2_2"
+            android:layout_alignTop="@id/img_border_2_2"
+            android:layout_alignBottom="@id/img_border_2_2"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlv_3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_above="@+id/img_main_center">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_3_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_border_3_1"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_3_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_3_0"
+            android:layout_alignLeft="@id/img_border_3_0"
+            android:layout_alignTop="@id/img_border_3_0"
+            android:layout_alignBottom="@id/img_border_3_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_3_1"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_rlv3_center"
+            android:layout_toStartOf="@+id/img_rlv3_center"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_3_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_3_1"
+            android:layout_alignLeft="@id/img_border_3_1"
+            android:layout_alignTop="@id/img_border_3_1"
+            android:layout_alignBottom="@id/img_border_3_1"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <ImageView
+            android:id="@+id/img_rlv3_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_3_2"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/img_rlv3_center"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_3_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_3_2"
+            android:layout_alignLeft="@id/img_border_3_2"
+            android:layout_alignTop="@id/img_border_3_2"
+            android:layout_alignBottom="@id/img_border_3_2"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_3_3"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/img_border_3_2"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_3_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_3_3"
+            android:layout_alignLeft="@id/img_border_3_3"
+            android:layout_alignTop="@id/img_border_3_3"
+            android:layout_alignBottom="@id/img_border_3_3"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_main_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/rlv_4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_below="@+id/rlv_1"
+        android:layout_marginTop="@dimen/rlv_4_5_6__marginTop">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_4_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_border_4_1"
+            android:layout_toStartOf="@+id/img_border_4_1"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_4_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_4_0"
+            android:layout_alignLeft="@id/img_border_4_0"
+            android:layout_alignTop="@id/img_border_4_0"
+            android:layout_alignBottom="@id/img_border_4_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_4_1"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_4_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_4_1"
+            android:layout_alignLeft="@id/img_border_4_1"
+            android:layout_alignTop="@id/img_border_4_1"
+            android:layout_alignBottom="@id/img_border_4_1"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_4_2"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/img_border_4_1"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_4_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_4_2"
+            android:layout_alignLeft="@id/img_border_4_2"
+            android:layout_alignTop="@id/img_border_4_2"
+            android:layout_alignBottom="@id/img_border_4_2"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlv_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_below="@+id/rlv_3"
+        android:layout_marginTop="@dimen/rlv_4_5_6__marginTop">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_5_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/img_rlv5_center"
+            android:layout_toStartOf="@+id/img_rlv5_center"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_5_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_5_0"
+            android:layout_alignLeft="@id/img_border_5_0"
+            android:layout_alignTop="@id/img_border_5_0"
+            android:layout_alignBottom="@id/img_border_5_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+        <ImageView
+            android:id="@+id/img_rlv5_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_5_1"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/img_rlv5_center"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_5_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_5_1"
+            android:layout_alignLeft="@id/img_border_5_1"
+            android:layout_alignTop="@id/img_border_5_1"
+            android:layout_alignBottom="@id/img_border_5_1"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlv_6"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rlv_height"
+        android:layout_below="@+id/rlv_4"
+        android:layout_marginTop="@dimen/rlv_4_5_6__marginTop">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_border_6_0"
+            android:layout_width="@dimen/room_size"
+            android:layout_height="@dimen/room_size"
+            app:srcCompat="@drawable/bg_rooms"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/borders_marginLeftRight"
+            android:layout_marginRight="@dimen/borders_marginLeftRight"/>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_room_6_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_circle_white_big_filled"
+            android:layout_alignRight="@id/img_border_6_0"
+            android:layout_alignLeft="@id/img_border_6_0"
+            android:layout_alignTop="@id/img_border_6_0"
+            android:layout_alignBottom="@id/img_border_6_0"
+            android:layout_margin="@dimen/rooms_margin" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edt_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="10"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/btn_send"
+        android:layout_toStartOf="@+id/btn_send" />
+
+    <Button
+        android:id="@+id/btn_send"
+        android:text="Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/edt_msg"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_conn"
+        android:text="Connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edt_msg"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/txt_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_above="@+id/edt_msg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/btn_conn"
+        android:layout_toLeftOf="@+id/btn_send"
+        android:layout_toStartOf="@+id/btn_send" />
+
+</RelativeLayout>
