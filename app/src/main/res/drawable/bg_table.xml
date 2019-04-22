@@ -6,7 +6,7 @@
         android:bottom="@dimen/table_padding"
         android:left="@dimen/table_padding"
         android:right="@dimen/table_padding"/>
-    <solid android:color="#0000"/>
-    <stroke android:color="#fff" android:width="5dp"/>
+    <solid android:color="#3000"/>
+    <stroke android:color="#fff" android:width="4dp"/>
     <corners android:radius="360dp"/>
 </shape>
