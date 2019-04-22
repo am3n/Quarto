@@ -1,2 +1,2 @@
 # Quarto
-![Quarto!](https://ufile.io/y0vex4fb)
+![Quarto!](http://i68.tinypic.com/vpf7fp.jpg)
