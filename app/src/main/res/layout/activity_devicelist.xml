@@ -26,7 +26,7 @@
         android:layout_alignBottom="@+id/title_paired_devices"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
-        <android.support.v7.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/button_scan"
             android:layout_width="?actionBarSize"
             android:layout_height="match_parent"

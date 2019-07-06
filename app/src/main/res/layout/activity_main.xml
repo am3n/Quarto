@@ -14,7 +14,7 @@
         android:layout_alignBottom="@+id/rlv_1"
         android:layout_marginBottom="@dimen/rlv_0_1_2__marginBottom">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_0_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -24,7 +24,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_0_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,7 +44,7 @@
         android:layout_alignBottom="@+id/rlv_2"
         android:layout_marginBottom="@dimen/rlv_0_1_2__marginBottom">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_1_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -54,7 +54,7 @@
             android:layout_toStartOf="@+id/img_rlv1_center"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_1_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -72,7 +72,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_1_1"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -81,7 +81,7 @@
             android:layout_toRightOf="@+id/img_rlv1_center"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_1_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -101,7 +101,7 @@
         android:layout_above="@+id/img_main_center"
         android:layout_marginBottom="@dimen/rlv_0_1_2__marginBottom">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_2_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -111,7 +111,7 @@
             android:layout_toStartOf="@+id/img_border_2_1"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_2_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -122,7 +122,7 @@
             android:layout_alignBottom="@id/img_border_2_0"
             android:layout_margin="@dimen/rooms_margin" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_2_1"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -132,7 +132,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_2_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -143,7 +143,7 @@
             android:layout_alignBottom="@id/img_border_2_1"
             android:layout_margin="@dimen/rooms_margin" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_2_2"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -152,7 +152,7 @@
             android:layout_toRightOf="@+id/img_border_2_1"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_2_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -171,7 +171,7 @@
         android:layout_height="@dimen/rlv_height"
         android:layout_above="@+id/img_main_center">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_3_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -179,7 +179,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/img_border_3_1"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_3_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -190,7 +190,7 @@
             android:layout_alignBottom="@id/img_border_3_0"
             android:layout_margin="@dimen/rooms_margin" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_3_1"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -200,7 +200,7 @@
             android:layout_toStartOf="@+id/img_rlv3_center"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_3_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -218,7 +218,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_3_2"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -227,7 +227,7 @@
             android:layout_toRightOf="@+id/img_rlv3_center"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_3_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -238,7 +238,7 @@
             android:layout_alignBottom="@id/img_border_3_2"
             android:layout_margin="@dimen/rooms_margin" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_3_3"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -246,7 +246,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/img_border_3_2"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_3_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -273,7 +273,7 @@
         android:layout_below="@+id/rlv_1"
         android:layout_marginTop="@dimen/rlv_4_5_6__marginTop">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_4_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -283,7 +283,7 @@
             android:layout_toStartOf="@+id/img_border_4_1"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_4_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -294,7 +294,7 @@
             android:layout_alignBottom="@id/img_border_4_0"
             android:layout_margin="@dimen/rooms_margin" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_4_1"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -304,7 +304,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_4_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -315,7 +315,7 @@
             android:layout_alignBottom="@id/img_border_4_1"
             android:layout_margin="@dimen/rooms_margin" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_4_2"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -324,7 +324,7 @@
             android:layout_toRightOf="@+id/img_border_4_1"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_4_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -344,7 +344,7 @@
         android:layout_below="@+id/rlv_3"
         android:layout_marginTop="@dimen/rlv_4_5_6__marginTop">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_5_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -354,7 +354,7 @@
             android:layout_toStartOf="@+id/img_rlv5_center"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_5_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -372,7 +372,7 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_5_1"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -381,7 +381,7 @@
             android:layout_toRightOf="@+id/img_rlv5_center"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_5_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -401,7 +401,7 @@
         android:layout_below="@+id/rlv_4"
         android:layout_marginTop="@dimen/rlv_4_5_6__marginTop">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_border_6_0"
             android:layout_width="@dimen/room_size"
             android:layout_height="@dimen/room_size"
@@ -411,7 +411,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/borders_marginLeftRight"
             android:layout_marginRight="@dimen/borders_marginLeftRight"/>
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_room_6_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

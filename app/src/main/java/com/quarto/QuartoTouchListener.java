@@ -13,8 +13,7 @@ class QuartoTouchListener implements View.OnTouchListener {
     private int qid;
     private QuartoListener quartoListener;
     private ScaleAnimation scaleIn, scaleOut;
-    private int leftMargin;
-    private int topMargin;
+    private float leftMargin, topMargin;
 
     QuartoTouchListener(int qid, QuartoListener quartoListener) {
         this.qid = qid;
@@ -53,8 +52,8 @@ class QuartoTouchListener implements View.OnTouchListener {
     @SuppressLint("ClickableViewAccessibility")
     public boolean onTouch(View view, MotionEvent event) {
 
-        final int rawX = (int) event.getRawX();
-        final int rawY = (int) event.getRawY();
+        final float rawX = event.getRawX();
+        final float rawY = event.getRawY();
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
 
@@ -78,8 +77,8 @@ class QuartoTouchListener implements View.OnTouchListener {
 
             case MotionEvent.ACTION_MOVE:
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                layoutParams.leftMargin = rawX - leftMargin;
-                layoutParams.topMargin = rawY - topMargin;
+                layoutParams.leftMargin = (int) (rawX - leftMargin);
+                layoutParams.topMargin = (int) (rawY - topMargin);
                 view.setLayoutParams(layoutParams);
                 view.requestLayout();
                 break;

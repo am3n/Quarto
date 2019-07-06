@@ -41,7 +41,7 @@ public class QuartoManager implements QuartoListener {
             Location location = tableRooms[i][j];
 
             int d = (int) Math.sqrt(Math.pow(r, 2) + Math.pow(r, 2));
-            int p = quarto.getContext().getResources().getDimensionPixelSize(R.dimen.room_padding);
+            int p = quarto.getContext().getResources().getDimensionPixelSize(R.dimen.room_padding) * 2;
             int f = (d - r) / 2 - p;
 
             ((RelativeLayout.LayoutParams)quarto.getLayoutParams()).leftMargin = location.leftMargin + (quarto.getMeasuredWidth()/2) + f;
@@ -52,6 +52,7 @@ public class QuartoManager implements QuartoListener {
             ((RelativeLayout.LayoutParams)quarto.getLayoutParams()).leftMargin = location.leftMargin;
             ((RelativeLayout.LayoutParams)quarto.getLayoutParams()).topMargin = location.topMargin;
         }
+
         quarto.requestLayout();
 
     }

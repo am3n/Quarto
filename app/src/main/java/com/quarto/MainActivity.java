@@ -1,11 +1,11 @@
 package com.quarto;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatImageView;
-import android.view.View;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;

@@ -10,7 +10,7 @@
     <!--android:layout_marginLeft="@dimen/borders_marginLeftRight"
     android:layout_marginRight="@dimen/borders_marginLeftRight"-->
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/pickroom_size"
         android:layout_height="@dimen/pickroom_size" />
 
