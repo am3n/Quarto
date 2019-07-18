@@ -13,6 +13,8 @@ android {
         versionName "1.0"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled false
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -38,10 +40,6 @@ dependencies {
 
     // bluetooth
     implementation 'com.akexorcist:bluetoothspp:1.0.0'
-
-    // draggable view
-    implementation 'com.github.hyuwah:DraggableView:0.1.0'
-
 
     // test
     testImplementation 'junit:junit:4.12'

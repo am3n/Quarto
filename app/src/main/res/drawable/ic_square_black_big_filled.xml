@@ -23,12 +23,11 @@
 
 
 
-    <group android:translateX="970" android:translateY="990"
-        android:scaleX="6.01" android:scaleY="6.01">
+    <group android:translateX="970" android:translateY="970"
+        android:scaleX="6.01" android:scaleY="6.09">
         <path
             android:fillColor="@color/quarto_black_fill"
             android:pathData="m37 6h436c16.6 0 30 13.4 30 30v438c0 16.6 -13.4 30 -30 30h-436c-16.6 0 -30 -13.4 -30 -30v-438c0 -16.6 13.4 -30 30 -30z" />
-
     </group>
 
 </vector>

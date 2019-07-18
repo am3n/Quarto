@@ -14,7 +14,10 @@
 
     <path
         android:fillColor="@color/quarto_white_fill"
-        android:name="Ellipse 2"
+        android:strokeColor="@color/quarto_white_stork"
+        android:strokeWidth="50"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
         android:pathData="m255.5 69c102.4 0 185.5 83.5 185.5 186.5c0 103 -83.1 186.5 -185.5 186.5c-102.4 0 -185.5 -83.5 -185.5 -186.5c0 -103 83.1 -186.5 185.5 -186.5z" />
 
 </vector>

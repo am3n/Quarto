@@ -11,7 +11,8 @@
 
     <dimen name="room_size">60dp</dimen>
     <dimen name="room_padding">1dp</dimen>
-    <dimen name="pickroom_size">40dp</dimen>
+    <dimen name="pickroom_size">45dp</dimen>
+    <dimen name="pickroom_padding">2dp</dimen>
     <dimen name="table_padding">50dp</dimen>
 
 </resources>

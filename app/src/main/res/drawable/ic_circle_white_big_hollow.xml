@@ -4,12 +4,15 @@
     android:viewportWidth="512"
     android:viewportHeight="512">
 
-    <path
-        android:strokeColor="@color/quarto_white_stork"
-        android:strokeWidth="124.4"
-        android:strokeLineJoin="round"
-        android:strokeLineCap="round"
-        android:name="Ellipse 1"
-        android:pathData="m255.5 68.6c102.6 0 185.9 83.7 185.9 186.9c0 103.2 -83.2 186.9 -185.9 186.9c-102.6 0 -185.9 -83.7 -185.9 -186.9c0 -103.2 83.2 -186.9 185.9 -186.9z" />
+    <group android:scaleX="1.065" android:scaleY="1.065"
+        android:translateX="-16" android:translateY="-16">
+        <path
+            android:strokeColor="@color/quarto_white_stork"
+            android:strokeWidth="110"
+            android:strokeLineJoin="round"
+            android:strokeLineCap="round"
+            android:pathData="m255.5 68.6c102.6 0 185.9 83.7 185.9 186.9c0 103.2 -83.2 186.9 -185.9 186.9c-102.6 0 -185.9 -83.7 -185.9 -186.9c0 -103.2 83.2 -186.9 185.9 -186.9z" />
+    </group>
+
 
 </vector>

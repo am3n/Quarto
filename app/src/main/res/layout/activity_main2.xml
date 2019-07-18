@@ -5,62 +5,150 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#555">
+    android:background="#D3D3D3">
 
-    <androidx.appcompat.widget.AppCompatImageView
+
+    <LinearLayout
+        android:id="@+id/linr_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_grdl_pick">
+
+        <RelativeLayout
+            android:id="@+id/rlv_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quarto!"
+                android:textColor="#333"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="cursive"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/shadow"/>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:columnCount="8"
+            android:rowCount="2">
+
+            <include
+                android:id="@+id/pickroom_0"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_1"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_2"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_3"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_4"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_5"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_6"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_7"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_8"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_9"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_10"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_11"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_12"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_13"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_14"
+                layout="@layout/pickroom" />
+
+            <include
+                android:id="@+id/pickroom_15"
+                layout="@layout/pickroom" />
+
+        </GridLayout>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_player"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linr_top"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="نوبت بازیکن ۱"
+        android:textColor="#222"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_playstate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="انتخاب مهره"
+        android:textSize="24sp"
+        android:textColor="#666"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_player"/>
+
+
 
     <GridLayout
+        android:id="@+id/circle_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_grdl_pick"
-        android:columnCount="4"
-        android:padding="6dp"
-        android:rowCount="2">
-
-        <include
-            android:id="@+id/pickroom_0"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_1"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_2"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_3"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_4"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_5"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_6"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_7"
-            layout="@layout/pickroom" />
-    </GridLayout>
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_table"
+        android:rowCount="4"
         android:columnCount="4"
-        android:rotation="-45"
-        android:rowCount="4">
+        android:rotation="45">
 
         <include
             android:id="@+id/room_0_0"
@@ -128,48 +216,5 @@
 
     </GridLayout>
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_grdl_pick2"
-        android:columnCount="4"
-        android:padding="6dp"
-        android:rowCount="2">
-
-        <include
-            android:id="@+id/pickroom_8"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_9"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_10"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_11"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_12"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_13"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_14"
-            layout="@layout/pickroom" />
-
-        <include
-            android:id="@+id/pickroom_15"
-            layout="@layout/pickroom" />
-
-    </GridLayout>
 
 </RelativeLayout>
