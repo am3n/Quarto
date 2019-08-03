@@ -18,6 +18,8 @@ class QuartoManager internal constructor(
         private val qmListener: QMListener
 ) : QuartoListener {
 
+    val controller: Controller?
+
     private val listeners: MutableList<QuartoTouchListener>
 
     private val circleTableLocation: Location
@@ -48,10 +50,17 @@ class QuartoManager internal constructor(
         val roomSquareRadius = sqrt(roomRadius.toDouble().pow(2))
         roomFraction = (roomSquareRadius - pickroomSquareRadius).toFloat() + roomPadding
 
-        for (i in pickrooms.indices) {
+        for (i in quartos.indices) {
             listeners.add(QuartoTouchListener(listeners.size, this))
             quartos[i]?.listenTo(listeners[listeners.size - 1])
         }
+
+        controller = Controller(rooms, quartos, roomFraction, object: ControllerListener {
+            override fun onMovedToRoom(qid: Int) {
+                playState = PlayState.PICK
+                picked = -1
+            }
+        })
 
     }
 
@@ -86,6 +95,7 @@ class QuartoManager internal constructor(
                 turn = turn.switch()
                 qmListener.onTurned(turn)
                 picked = qid
+                controller?.userPicked = qid
                 quartos[qid]?.pick(true)
                 quartos.forEach { quarto -> if (quarto?.id!=qid && quarto?.inTable==false) quarto.hide(true) }
             }
@@ -292,7 +302,7 @@ class QuartoManager internal constructor(
                 return intArrayOf(index, -1)
             }
 
-            //------------  scan in colmns  -------------------------
+            //------------  scan in columns  -------------------------
             size = null; shape = null; inside = null; color = null
             onSize = true; onShape = true; onInside = true; onColor = true
             for (i in 0 until 4) {

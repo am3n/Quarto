@@ -3,7 +3,7 @@ package com.quarto
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatImageView
 
-data class Room(var qid: Int, val view: RelativeLayout?, val size: Int, val rotated: Boolean) : Location(view, rotated) {
+data class Room(var id: Int, var qid: Int, val view: RelativeLayout?, val size: Int, val rotated: Boolean) : Location(view, rotated) {
 
     val empty: Boolean get() { return qid == -1 }
 

@@ -60,9 +60,7 @@ class QuartoTouchListener(private val qid: Int, private val quartoListener: Quar
             MotionEvent.ACTION_UP -> {
 
                 if (quartoListener.onDrop(qid)) {
-                    Handler().postDelayed({
-                        view.animate().scaleXBy(-.25f).scaleYBy(-.25f).setDuration(200).start()
-                    }, 100)
+
                 }
             }
 

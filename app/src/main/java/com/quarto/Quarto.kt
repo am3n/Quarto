@@ -41,12 +41,19 @@ class Quarto(context: Context,
 
         if (flag) {
             var scale = .35f
-            if (qSize==LARGE && qShape==SQUARE) scale = .3f
+            if (qSize==LARGE && qShape==CIRCLE) scale = .5f
+            if (qSize==LARGE && qShape==SQUARE) scale = .4f
             view.animate()
                     .scaleXBy(scale)
                     .scaleYBy(scale)
                     .setInterpolator(BounceInterpolator())
                     .setDuration(300)
+                    .start()
+        } else {
+            view.animate()
+                    .scaleXBy(-.25f)
+                    .scaleYBy(-.25f)
+                    .setDuration(200)
                     .start()
         }
     }
