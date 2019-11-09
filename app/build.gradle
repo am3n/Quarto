@@ -32,6 +32,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    //implementation 'com.google.android.material:material:1.1.0-alpha09'
     implementation 'androidx.core:core-ktx:1.0.2'
 
     // kotlin
@@ -41,6 +42,11 @@ dependencies {
 
     // bluetooth
     implementation 'com.akexorcist:bluetoothspp:1.0.0'
+
+    // gson
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.6.1'
 
     // test
     testImplementation 'junit:junit:4.12'

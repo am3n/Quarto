@@ -1,61 +1,30 @@
 package com.quarto
 
 import android.util.Log
-import kotlin.random.Random
 
 open class Controller(
-        var rooms: Array<Array<Room?>>,
-        var quartos: Array<Quarto?>,
-        private val roomFraction: Float,
+        private var rooms: Array<Array<Room?>>,
+        private var quartos: Array<Quarto?>,
         private val listener: ControllerListener?
 ) {
 
-    var userPicked = -1
+    private val log = true
+    private val moveK = 3
+    private val pickK = 3
+    var moveCount = 0
+    var pickCount = 0
 
+    internal fun moveQuarto(picked: Int) {
 
-    fun doWork() {
-        if (userPicked==-1)
-            pickRandomQuartoFromNotInTable()
-        else
-            movePickedQuarto()
-    }
-
-
-    private fun pickRandomQuartoFromNotInTable() {
-        val quartosOutOfTable = quartos.filter { quarto -> quarto?.inTable==false }
-        var rand = 0
-        if (quartosOutOfTable.isNotEmpty())
-            rand = Random.nextInt(quartosOutOfTable.size)
-        userPicked = quartosOutOfTable[rand]?.id ?: -1
-        quartos[userPicked]?.pick(true)
-        quartos.forEach { quarto -> if (quarto?.id!=userPicked && quarto?.inTable==false) quarto.hide(true) }
-    }
-
-
-    private fun movePickedQuarto() {
-
-        if (userPicked==-1)
-            return
-
-        val arr = findBestRoomForUserPickedQuarto(userPicked, 2, true)
+        moveCount = 0
+        val arr = findBestRoomForPickedQuarto(picked, moveK, true)
         val bestRoomIndex = arr[0]
         val bestRoomScore = arr[1]
-        val i = bestRoomIndex / 4
-        val j = bestRoomIndex % 4
-
-        quartos[userPicked]?.animateTo(rooms[i][j]?.location, roomFraction, roomFraction)
-        quartos[userPicked]?.pick(false)
-        quartos.forEach { quarto -> quarto?.hide(false) }
-        quartos[userPicked]?.inTable = true
-        rooms[i][j]?.qid = userPicked
-
-        listener?.onMovedToRoom(userPicked)
-        userPicked = -1
+        Log.d("Me-Controller", "move count: $moveCount")
+        listener?.move(bestRoomIndex)
 
     }
-
-
-    private fun findBestRoomForUserPickedQuarto(picked: Int, k: Int, favor: Boolean): IntArray {
+    private fun findBestRoomForPickedQuarto(picked: Int, k: Int, favor: Boolean): IntArray {
 
         val minMaxScoresIndex: MutableList<Int> = ArrayList()
         var score: Int
@@ -63,8 +32,8 @@ open class Controller(
         var min = Int.MAX_VALUE
 
         for (index in 0 until rooms.size*rooms.size) {
-            val i = index / 4
-            val j = index % 4
+            moveCount++
+            val i = index/4; val j = index%4
             if (rooms[i][j]?.empty == true) {
                 rooms[i][j]?.qid = picked
                 quartos[picked]?.inTable = true
@@ -73,10 +42,22 @@ open class Controller(
                 if (!favor) score *= -1
 
                 if (k-1 > 0) {
-                    val newPick = pickFirstQuartoFromNotInTable()
-                    val k = k - 1
-                    val arr = findBestRoomForUserPickedQuarto(newPick, k, !favor)
-                    score += arr[1]
+                    var secondScore: Int
+                    var secondMax = Int.MIN_VALUE
+                    var secondMin = Int.MAX_VALUE
+                    quartos.filter { it?.inTable==false }.forEach { q ->
+                        moveCount++
+                        val newPick = q?.id ?: -1
+                        val k = k - 1
+                        val arr = findBestRoomForPickedQuarto(newPick, k, !favor)
+                        secondScore = arr[1]
+                        if (favor && secondScore > secondMax) {
+                            secondMax = secondScore
+                        } else if (!favor && secondScore < secondMin) {
+                            secondMin = secondScore
+                        }
+                    }
+                    score += if (favor) secondMax else secondMin
                 }
 
                 if (favor) {
@@ -106,11 +87,11 @@ open class Controller(
             var str = ""
             minMaxScoresIndex.forEach { str += "$it, " }
             if (favor) {
-                Log.d("Me-Controller", "k: $k  -  max: $max  -  indexes: $str")
-                intArrayOf(minMaxScoresIndex[Random.nextInt(minMaxScoresIndex.size)], max)
+                if (log) Log.d("Me-Controller", "k: ${moveK - k}  -  max: $max  -  indexes: $str")
+                intArrayOf(minMaxScoresIndex.random(), max)
             } else {
-                Log.d("Me-Controller", "k: $k  -  min: $min  -  indexes: $str")
-                intArrayOf(minMaxScoresIndex[Random.nextInt(minMaxScoresIndex.size)], min)
+                if (log) Log.d("Me-Controller", "k: ${moveK - k}  -  min: $min  -  indexes: $str")
+                intArrayOf(minMaxScoresIndex.random(), min)
             }
         } else {
             if (favor)
@@ -121,14 +102,270 @@ open class Controller(
 
     }
 
+    internal fun pickQuarto() {
 
-    private fun pickFirstQuartoFromNotInTable(): Int {
-        val quartosOutOfTable = quartos.filter { quarto -> quarto?.inTable==false }
-        if (quartosOutOfTable.isNotEmpty())
-            return quartosOutOfTable[0]?.id ?: -1
-        return -1
+        pickCount = 0
+        val arr = findBestQuartoToPickForUser(pickK, false)
+        val bestQuartoId = arr[0]
+        val bestQuartoScore = arr[1]
+        if (log) println("Me-Controller - pick count: $pickCount")
+        listener?.pick(bestQuartoId)
+
     }
+    private fun findBestQuartoToPickForUser(k: Int, favor: Boolean): IntArray {
 
+        val minMaxScores: MutableList<Int> = ArrayList()
+        var max = Int.MIN_VALUE
+        var min = Int.MAX_VALUE
+
+        quartos.filter { it?.inTable == false }.forEach { it?.let { q ->
+
+            var score = 0
+
+            //for (index in 0 until rooms.size*rooms.size) { }
+            emptyEffectiveRooms(rooms).forEach { r ->
+                pickCount++
+
+                val i = r.id / 4 ; val j = r.id % 4
+                rooms[i][j]?.qid = q.id
+                quartos[q.id]?.inTable = true
+
+                var s = calcScoreOfMove(i, j) * k
+                if (!favor) s *= -1
+
+                score += s
+
+                if (k-1>0 && s==0) {
+                    val arr = findBestQuartoToPickForUser(k-1, !favor)
+                    score += arr[1]
+
+                } else if (k-1>0 && s!=0) {
+                    var ee = emptyEffectiveRooms(rooms).size
+                    var kk = k
+                    var ss = 0
+                    while (kk>0) {
+                        ss += ee
+                        ee--
+                        kk--
+                    }
+                    if (!favor) ss *= -1
+                    score += ss
+                }
+
+                rooms[i][j]?.qid = -1
+                quartos[q.id]?.inTable = false
+
+            }
+
+            if (favor) {
+                if (score < min) {
+                    min = score
+                    minMaxScores.clear()
+                    minMaxScores.add(q.id)
+                } else if (score == min) {
+                    minMaxScores.add(q.id)
+                }
+            } else {
+                if (score > max) {
+                    max = score
+                    minMaxScores.clear()
+                    minMaxScores.add(q.id)
+                } else if (score == max) {
+                    minMaxScores.add(q.id)
+                }
+            }
+
+            return@let
+
+        } }
+
+        return if (minMaxScores.size>0) {
+            var str = ""
+            minMaxScores.forEach { str += "$it, " }
+            if (favor) {
+                if (log) println("Me-Controller - k: ${pickK - k}  -  min: $min  -  quartos: $str")
+                intArrayOf(minMaxScores.random(), min)
+            } else {
+                if (log) println("Me-Controller - k: ${pickK - k}  -  max: $max  -  quartos: $str")
+                intArrayOf(minMaxScores.random(), max)
+            }
+        } else {
+            if (favor) {
+                if (log) println("Me-Controller - k: $k  -  min: $min  -  indexes: -1")
+                intArrayOf(-1, min)
+            } else {
+                if (log) println("Me-Controller - k: $k  -  max: $max  -  indexes: -1")
+                intArrayOf(-1, max)
+            }
+        }
+    }
+    private fun emptyEffectiveRooms(rooms: Array<Array<Room?>>): ArrayList<Room> {
+
+        val arr = ArrayList<Room>()
+
+        var row = 0
+        var col = 0
+
+        col = 0
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                             rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true ||
+                             rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+        col = 1
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true /*||
+                            rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+        col = 2
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true /*||
+                            rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+        col = 3
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true ||
+                            rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true ||
+                            rooms[3][0]?.empty!=true || rooms[2][1]?.empty!=true || rooms[1][2]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+
+        // -------------------------------
+        row = 1
+
+
+        col = 0
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true /*||
+                            rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+        col = 1
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true ||
+                            rooms[0][0]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+        col = 2
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true ||
+                            rooms[3][0]?.empty!=true || rooms[2][1]?.empty!=true || rooms[0][3]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+        col = 3
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[2][col]?.empty!=true || rooms[3][col]?.empty!=true /*||
+                            rooms[3][0]?.empty!=true || rooms[2][1]?.empty!=true || rooms[1][2]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+
+        // --------------------------------
+        row = 2
+
+        col = 0
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[3][col]?.empty!=true /*||
+                            rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+        col = 1
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[3][col]?.empty!=true ||
+                            rooms[3][0]?.empty!=true || rooms[1][2]?.empty!=true || rooms[0][3]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+        col = 2
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[3][col]?.empty!=true ||
+                            rooms[0][0]?.empty!=true || rooms[1][1]?.empty!=true || rooms[3][3]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+        col = 3
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[3][col]?.empty!=true /*||
+                            rooms[3][0]?.empty!=true || rooms[2][1]?.empty!=true || rooms[1][2]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+
+        // -------------------------------
+        row = 3
+
+        col = 0
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true ||
+                            rooms[2][1]?.empty!=true || rooms[1][2]?.empty!=true || rooms[0][3]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+        col = 1
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][2]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true /*||
+                            rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+        col = 2
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][3]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true /*||
+                            rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true || rooms[3][3]?.empty!=true*/)) {
+                arr.add(r)
+            }
+        }
+
+        col = 3
+        rooms[row][col]?.let { r ->
+            if (r.empty && (rooms[row][0]?.empty!=true || rooms[row][1]?.empty!=true || rooms[row][2]?.empty!=true ||
+                            rooms[0][col]?.empty!=true || rooms[1][col]?.empty!=true || rooms[2][col]?.empty!=true ||
+                            rooms[0][0]?.empty!=true || rooms[1][1]?.empty!=true || rooms[2][2]?.empty!=true)) {
+                arr.add(r)
+            }
+        }
+
+
+        return arr
+    }
 
     private fun calcScoreOfMove(iQ: Int, jQ: Int): Int {
 
@@ -150,18 +387,18 @@ open class Controller(
             rooms[iQ][i]?.let { room ->
                 if (!room.empty) {
                     if (sizeInRow == null || shapeInRow == null || insideInRow == null || colorInRow == null) {
-                        sizeInRow = quartos[room.qid]?.qSize
-                        shapeInRow = quartos[room.qid]?.qShape
-                        insideInRow = quartos[room.qid]?.qInside
-                        colorInRow = quartos[room.qid]?.qColor
+                        sizeInRow = quartos[room.qid]?.size
+                        shapeInRow = quartos[room.qid]?.shape
+                        insideInRow = quartos[room.qid]?.inside
+                        colorInRow = quartos[room.qid]?.color
                     }
-                    if (quartos[room.qid]?.qSize != sizeInRow)
+                    if (quartos[room.qid]?.size != sizeInRow)
                         onSizeInRow = false
-                    if (quartos[room.qid]?.qShape != shapeInRow)
+                    if (quartos[room.qid]?.shape != shapeInRow)
                         onShapeInRow = false
-                    if (quartos[room.qid]?.qInside != insideInRow)
+                    if (quartos[room.qid]?.inside != insideInRow)
                         onInsideInRow = false
-                    if (quartos[room.qid]?.qColor != colorInRow)
+                    if (quartos[room.qid]?.color != colorInRow)
                         onColorInRow = false
                 } else {
                     onSizeInRow = false
@@ -176,18 +413,18 @@ open class Controller(
             rooms[i][jQ]?.let { room ->
                 if (!room.empty) {
                     if (sizeInColumn == null || shapeInColumn == null || insideInColumn == null || colorInColumn == null) {
-                        sizeInColumn = quartos[room.qid]?.qSize
-                        shapeInColumn = quartos[room.qid]?.qShape
-                        insideInColumn = quartos[room.qid]?.qInside
-                        colorInColumn = quartos[room.qid]?.qColor
+                        sizeInColumn = quartos[room.qid]?.size
+                        shapeInColumn = quartos[room.qid]?.shape
+                        insideInColumn = quartos[room.qid]?.inside
+                        colorInColumn = quartos[room.qid]?.color
                     }
-                    if (quartos[room.qid]?.qSize != sizeInColumn)
+                    if (quartos[room.qid]?.size != sizeInColumn)
                         onSizeInColumn = false
-                    if (quartos[room.qid]?.qShape != shapeInColumn)
+                    if (quartos[room.qid]?.shape != shapeInColumn)
                         onShapeInColumn = false
-                    if (quartos[room.qid]?.qInside != insideInColumn)
+                    if (quartos[room.qid]?.inside != insideInColumn)
                         onInsideInColumn = false
-                    if (quartos[room.qid]?.qColor != colorInColumn)
+                    if (quartos[room.qid]?.color != colorInColumn)
                         onColorInColumn = false
                 } else {
                     onSizeInColumn = false
@@ -203,18 +440,18 @@ open class Controller(
                 rooms[i][i]?.let { room ->
                     if (!room.empty) {
                         if (sizeInMD == null || shapeInMD == null || insideInMD == null || colorInMD == null) {
-                            sizeInMD = quartos[room.qid]?.qSize
-                            shapeInMD = quartos[room.qid]?.qShape
-                            insideInMD = quartos[room.qid]?.qInside
-                            colorInMD = quartos[room.qid]?.qColor
+                            sizeInMD = quartos[room.qid]?.size
+                            shapeInMD = quartos[room.qid]?.shape
+                            insideInMD = quartos[room.qid]?.inside
+                            colorInMD = quartos[room.qid]?.color
                         }
-                        if (quartos[room.qid]?.qSize != sizeInMD)
+                        if (quartos[room.qid]?.size != sizeInMD)
                             onSizeInMD = false
-                        if (quartos[room.qid]?.qShape != shapeInMD)
+                        if (quartos[room.qid]?.shape != shapeInMD)
                             onShapeInMD = false
-                        if (quartos[room.qid]?.qInside != insideInMD)
+                        if (quartos[room.qid]?.inside != insideInMD)
                             onInsideInMD = false
-                        if (quartos[room.qid]?.qColor != colorInMD)
+                        if (quartos[room.qid]?.color != colorInMD)
                             onColorInMD = false
                     } else {
                         onSizeInMD = false
@@ -236,18 +473,18 @@ open class Controller(
                 rooms[i][3-i]?.let { room ->
                     if (!room.empty) {
                         if (sizeInSD == null || shapeInSD == null || insideInSD == null || colorInSD == null) {
-                            sizeInSD = quartos[room.qid]?.qSize
-                            shapeInSD = quartos[room.qid]?.qShape
-                            insideInSD = quartos[room.qid]?.qInside
-                            colorInSD = quartos[room.qid]?.qColor
+                            sizeInSD = quartos[room.qid]?.size
+                            shapeInSD = quartos[room.qid]?.shape
+                            insideInSD = quartos[room.qid]?.inside
+                            colorInSD = quartos[room.qid]?.color
                         }
-                        if (quartos[room.qid]?.qSize != sizeInSD)
+                        if (quartos[room.qid]?.size != sizeInSD)
                             onSizeInSD = false
-                        if (quartos[room.qid]?.qShape != shapeInSD)
+                        if (quartos[room.qid]?.shape != shapeInSD)
                             onShapeInSD = false
-                        if (quartos[room.qid]?.qInside != insideInSD)
+                        if (quartos[room.qid]?.inside != insideInSD)
                             onInsideInSD = false
-                        if (quartos[room.qid]?.qColor != colorInSD)
+                        if (quartos[room.qid]?.color != colorInSD)
                             onColorInSD = false
                     } else {
                         onSizeInSD = false
@@ -278,14 +515,5 @@ open class Controller(
 
         return score
     }
-
-
-
-    private fun findBestQuartoToPickForUser() {
-
-
-
-    }
-
 
 }

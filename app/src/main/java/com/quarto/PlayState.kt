@@ -4,17 +4,17 @@ enum class PlayState {
 
     PICK {
         override fun getString(): String {
-            return "انتخاب مهره"
+            return "pick a quarto"
         }
     },
     MOVE {
         override fun getString(): String {
-            return "حرکت مهره"
+            return "move picked quarto"
         }
     },
     QUARTO {
         override fun getString(): String {
-            return "کوآرتووو!"
+            return "Quartooo!!!"
         }
     };
 

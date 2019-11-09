@@ -2,6 +2,8 @@ package com.quarto
 
 interface ControllerListener {
 
-    fun onMovedToRoom(qid: Int)
+    fun move(id: Int)
+
+    fun pick(qid: Int)
 
 }

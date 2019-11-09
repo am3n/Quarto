@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_requesttaxi">
+
+    <RelativeLayout
+        android:id="@+id/rlv_dialogfragment_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#eee"
+        android:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_dialogfragment_server_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ip"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_dialogfragment_server_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="port"
+            android:layout_below="@+id/edt_dialogfragment_server_ip"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_dialogfragment_server_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ok"
+            android:layout_below="@+id/edt_dialogfragment_server_port"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

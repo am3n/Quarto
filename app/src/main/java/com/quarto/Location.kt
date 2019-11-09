@@ -11,11 +11,14 @@ open class Location(private val view: View?, private val rotated: Boolean) {
     var coordY: Float? = 0.toFloat()
     var centerX: Float? = 0.toFloat()
     var centerY: Float? = 0.toFloat()
+
     val location: Location get() = this
 
     init {
         calc()
     }
+
+    constructor() : this(null, false)
 
     constructor(centerX: Float, centerY: Float) : this(null, false) {
         this.centerX = centerX
