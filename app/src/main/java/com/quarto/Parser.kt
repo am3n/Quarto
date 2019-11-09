@@ -6,6 +6,7 @@ import com.quarto.server.socket.Connect
 import java.io.Serializable
 import kotlin.random.Random
 
+
 class Parser(
         private val listener: Listener,
         private val bt: BluetoothSPP? = null,
